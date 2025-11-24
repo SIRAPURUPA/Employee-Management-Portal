@@ -76,7 +76,7 @@
 
             <div class="header text-center mb-3">
                 <h2>Add Performance Report</h2>
-                <p class="text-muted">Upload your PDF or text report</p>
+                <p class="text-muted">Upload your text report</p>
             </div>
 
             <form action="AddReport" method="post" enctype="multipart/form-data">
@@ -112,7 +112,7 @@
                 <div class="mb-3">
                     <label class="form-label">Upload Report (PDF or TXT)</label>
                     <input type="file" name="reportFile" class="form-control"
-                           accept=".pdf,.txt" required>
+                           accept=".txt" required>
                 </div>
 
                 <button type="submit" class="btn btn-primary w-100">Upload</button>
