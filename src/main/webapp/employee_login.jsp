@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Admin Login | Employee Management Portal</title>
+    <title>Employee Login | Employee Management Portal</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -40,6 +40,11 @@
             border-radius: 5px;
             border: 1px solid #aaa;
         }
+        .note {
+            font-size: 12px;
+            color: #555;
+            margin-top: 5px;
+        }
         .btn {
             width: 100%;
             background: #007bff;
@@ -68,37 +73,32 @@
             text-decoration: none;
         }
     </style>
+    
 </head>
 <body>
 
 <div class="login-container">
-    <h2>Admin Login</h2>
+    <h2>Employee Login</h2>
 
-    <form method="post" action="AdminLogin">
+    <form method="post" action="EmployeeLogin">
         <div class="form-group">
-            <label for="email">Email</label>
-            <input required type="text" id="email" name="email" placeholder="Enter admin email">
-            <div class="error-msg">${emailError}</div>
+            <label for="email">Employee Email</label>
+            <input required type="text" id="email" name="email" placeholder="Enter Employee Email">
+            <div class="error-msg">${empError}</div>
         </div>
 
         <div class="form-group">
             <label for="password">Password</label>
             <input required type="password" id="password" name="password" placeholder="Enter password">
+            <div class="note">* Your default password is your Employee ID</div>
             <div class="error-msg">${passwordError}</div>
         </div>
 
         <button type="submit" class="btn">Login</button>
 
-        <div style="text-align: center; margin-top: 15px;">
-            Create an Admin Account - 
-            <a href="admin_signup.jsp" style="color:#007bff; text-decoration:none; font-size:14px;">
-                (Signup)
-            </a>
-        </div>
-        
         <div class="switch-link">
-            Employee Login?  
-            <a href="employee_login.jsp">Click Here</a>
+            Admin Login?  
+            <a href="admin_login.jsp">Click Here</a>
         </div>
     </form>
 

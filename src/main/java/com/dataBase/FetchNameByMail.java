@@ -34,5 +34,34 @@ public class FetchNameByMail {
 
 	    return name;   // null if not found
 	}
+	
+	public static String getEmpName(String email) {
+	    String name = null;
+
+	    String url = "jdbc:mysql://localhost:3306/employee_management";
+	    String uname = "root";
+	    String pwd = "admin";
+
+	    try {
+	        Class.forName("com.mysql.cj.jdbc.Driver");
+	        Connection con = DriverManager.getConnection(url, uname, pwd);
+
+	        String query = "SELECT name FROM employee WHERE email = ?";
+	        PreparedStatement ps = con.prepareStatement(query);
+	        ps.setString(1, email);
+
+	        ResultSet rs = ps.executeQuery();
+
+	        if (rs.next()) {
+	            name = rs.getString("name");
+	        }
+
+	        con.close();
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+
+	    return name;   // null if not found
+	}
 
 }
