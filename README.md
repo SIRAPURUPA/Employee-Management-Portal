@@ -207,3 +207,98 @@ Submits and edits reports
 3. Analytics dashboard
 
 4. Dark mode UI
+
+---
+
+## 🧪 API Testing (Postman)
+
+The Employee Management Portal includes multiple backend APIs built using **Java Servlets**.  
+All APIs were thoroughly tested using **Postman** to ensure correct request handling, validation, and responses.
+
+### ✔ What Was Tested?
+- Admin login API  
+- Employee login API  
+- Add employee API  
+- Update employee details  
+- Delete employee  
+- Add report API  
+- Update report API  
+- Fetch all employees  
+- Fetch employee reports  
+
+### 🧵 API Request/Response Format
+
+
+## Admin Login
+
+**Endpoint:** `POST /adminLogin`
+
+**Request Body:**
+```json
+{
+  "email": "admin@gmail.com",
+  "password": "admin123"
+}
+```
+**Successful Response:**
+```
+json
+{
+  "status": "success",
+  "message": "Admin authenticated successfully"
+}
+```
+## Add Employee API
+**Endpoint:** POST /addEmployee
+
+**Request Body:**
+
+```json
+{
+  "name": "John Doe",
+  "email": "john@company.com",
+  "department": "Development",
+  "salary": 45000
+}
+```
+**Successful Response:**
+
+```json
+{
+  "status": "success",
+  "message": "Employee added successfully"
+}
+```
+
+## Postman Collection
+
+A complete Postman collection was created for easier testing, which includes:
+
+1. Authentication APIs
+2. Employee CRUD operations
+3. Report APIs
+4. Admin operations
+
+You can import the collection into Postman for quick testing.
+
+## API Testing Results
+
+✔ All API endpoints returned correct responses
+
+✔ Backend validations passed
+
+✔ Unauthorized access attempts handled correctly
+
+✔ Error responses verified
+
+✔ Database operations confirmed
+
+## Postman testing ensured that:
+
+✔ All APIs work independently
+
+✔ All endpoints follow the correct HTTP methods
+
+✔ JSON input/output is consistent
+
+✔ Database insert/update/delete operations work correctly
