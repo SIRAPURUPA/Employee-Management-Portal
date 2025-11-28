@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@ page import="java.sql.*, java.util.*" %>
 <!DOCTYPE html>
 <html>
@@ -12,8 +14,8 @@
             background-color: #f4f6f9;
         }
         .container{
-        	width:1000px;
-        	margin-left:270px;
+            width:1000px;
+            margin-left:270px;
         }
         .page-box {
             margin-top: 40px;
@@ -25,6 +27,10 @@
         table th {
             background-color: #2c3e50;
             color: white;
+            text-align: center;
+        }
+        table td {
+            vertical-align: middle;
         }
         .small-action {
             padding: 4px 8px;
@@ -44,9 +50,10 @@
     <table class="table table-bordered table-striped">
         <thead>
             <tr>
-                <th>Report ID</th>
                 <th>Title</th>
                 <th>Date</th>
+                <th>Rating</th>
+                <th>Admin Comment</th>
                 <th style="width: 220px;">Actions</th>
             </tr>
         </thead>
@@ -70,12 +77,20 @@
                     int reportId = rs.getInt("report_id");
                     String title = rs.getString("report_title");
                     String date = rs.getString("report_date");
+
+                    // NEW FIELDS
+                    Integer rating = rs.getInt("rating");
+                    String comment = rs.getString("admin_comment");
+
+                    String ratingDisplay = (rating == null || rating == 0) ? "Not Rated" : rating + " ★";
+                    String commentDisplay = (comment == null || comment.trim().isEmpty()) ? "No Comment" : comment;
         %>
 
         <tr>
-            <td><%= reportId %></td>
             <td><%= title %></td>
             <td><%= date %></td>
+            <td><%= ratingDisplay %></td>
+            <td><%= commentDisplay %></td>
 
             <td>
 

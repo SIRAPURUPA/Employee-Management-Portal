@@ -55,6 +55,7 @@
     <a href="admin_dashboard.jsp">Dashboard</a>
     <a href="add_employee.jsp">Add Employee</a>
     <a href="view_employees.jsp">View Employees</a>
+    <a href="admin_view_reports.jsp">View Reports</a>
 
     <a href="Logout" class="btn-danger">Logout</a>
 </div>

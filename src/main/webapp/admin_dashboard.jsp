@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="javax.servlet.http.HttpSession" %>
+<%@ page import="javax.servlet.http.HttpSession, java.sql.*, java.io.IOException" %>
 
 <%
     // Protect dashboard – only logged-in admins allowed
@@ -11,6 +11,28 @@
     }
 
     String adminName = sessionObj.getAttribute("name").toString();
+%>
+
+<%
+    int totalEmployees = 0;
+
+    try {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/employee_management", "root", "admin");
+
+        String query = "SELECT COUNT(*) FROM employee";
+        PreparedStatement ps = con.prepareStatement(query);
+        ResultSet rs = ps.executeQuery();
+
+        if (rs.next()) {
+            totalEmployees = rs.getInt(1);
+        }
+
+        con.close();
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
 %>
 
 <!DOCTYPE html>
@@ -137,7 +159,7 @@
 
             <div class="card">
                 <h3>Total Employees</h3>
-                <p></p>
+                <p><%= totalEmployees %></p>
                 <a href="view_employees.jsp" class="btn">View</a>
             </div>
 
@@ -145,6 +167,12 @@
                 <h3>Add New Employee</h3>
                 <p>Create a new employee record</p>
                 <a href="add_employee.jsp" class="btn">Add Employee</a>
+            </div>
+            
+            <div class="card">
+                <h3>View Employee Reports</h3>
+                <p>Rate and do comment</p>
+                <a href="admin_view_reports.jsp" class="btn">View Reports</a>
             </div>
 
             <div class="card">

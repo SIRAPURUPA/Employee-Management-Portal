@@ -110,7 +110,7 @@
 
                 <!-- Upload File -->
                 <div class="mb-3">
-                    <label class="form-label">Upload Report (PDF or TXT)</label>
+                    <label class="form-label">Upload Report in .txt Format</label>
                     <input type="file" name="reportFile" class="form-control"
                            accept=".txt" required>
                 </div>
