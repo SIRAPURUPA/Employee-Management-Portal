@@ -74,30 +74,31 @@
 <div class="login-container">
     <h2>Admin Login</h2>
 
+    <!-- IMPORTANT: names changed to match DB columns (amail, apwd) -->
     <form method="post" action="AdminLogin">
         <div class="form-group">
-            <label for="email">Email</label>
-            <input required type="text" id="email" name="email" placeholder="Enter admin email">
+            <label for="amail">Email</label>
+            <input required type="text" id="amail" name="amail" placeholder="Enter admin email">
             <div class="error-msg">${emailError}</div>
         </div>
 
         <div class="form-group">
-            <label for="password">Password</label>
-            <input required type="password" id="password" name="password" placeholder="Enter password">
+            <label for="apwd">Password</label>
+            <input required type="password" id="apwd" name="apwd" placeholder="Enter password">
             <div class="error-msg">${passwordError}</div>
         </div>
 
         <button type="submit" class="btn">Login</button>
 
         <div style="text-align: center; margin-top: 15px;">
-            Create an Admin Account - 
+            Create an Admin Account -
             <a href="admin_signup.jsp" style="color:#007bff; text-decoration:none; font-size:14px;">
                 (Signup)
             </a>
         </div>
         
         <div class="switch-link">
-            Employee Login?  
+            Employee Login?
             <a href="employee_login.jsp">Click Here</a>
         </div>
     </form>
